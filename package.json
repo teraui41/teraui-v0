@@ -6,7 +6,8 @@
     "cra-template": "1.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "styled-jss": "^2.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -14,7 +15,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "clean": "rm -rf ./dist",
-    "compile": "yarn clean && cross-env NODE_ENV=production babel src/components --out-dir lib --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
+    "compile": "yarn clean && cross-env NODE_ENV=production babel src/lib --out-dir lib --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
   },
   "eslintConfig": {
     "extends": "react-app"
