@@ -15,6 +15,7 @@ const basicStyle = (theme) => ({
 const textStyle = (theme) => ({
   color: theme.colors.primary,
   backgroundColor: theme.colors.transparent,
+  
 });
 
 const filledStyle = (theme) => ({

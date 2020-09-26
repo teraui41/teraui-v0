@@ -6,3 +6,6 @@ export * from './ThemeProvider';
 
 export { default as theme } from './theme';
 export * from './theme';
+
+export { default as Icon } from './Icon';
+export * from './Icon';

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import "./App.css";
-import { ThemeProvider, Button, theme } from "./lib";
+import { ThemeProvider, Button, theme, Icon } from "./lib";
 
 const styles = {
   button: {
@@ -13,7 +13,9 @@ function App() {
     <div className='App'>
       <ThemeProvider theme={theme}>
         <Fragment>
-          <Button type='filled' style={styles.button}>Filled Button</Button>
+          <Button type='filled' style={styles.button}>
+            <Icon></Icon>
+            Filled Button</Button>
           <Button type='outline' style={styles.button}>Outline Button</Button>
           <Button type='text' style={styles.button}>Text Button</Button>
         </Fragment>
