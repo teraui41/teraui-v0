@@ -1,10 +1,8 @@
-import React, { createContext } from 'react';
-import { ThemeProvider } from 'styled-jss';
+import React from 'react';
+import { ThemeProvider as BasicThemeProvider } from 'styled-jss';
 
-const ThemeContext = createContext(null);
-
-const ThemeProvide = ({ theme, children }) => {
-return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+const ThemeProvider = ({ theme, children }) => {
+return <BasicThemeProvider theme={theme}>{children}</BasicThemeProvider>
 } 
 
-export default ThemeProvide;
+export default ThemeProvider;

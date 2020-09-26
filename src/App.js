@@ -1,14 +1,22 @@
-import React from 'react';
-import './App.css';
-import theme from './lib/theme';
-import Button from './lib/Button';
-import { ThemeProvider } from 'styled-jss';
+import React, { Fragment } from 'react';
+import "./App.css";
+import { ThemeProvider, Button, theme } from "./lib";
+
+const styles = {
+  button: {
+    marginRight: 8
+  }
+}
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <ThemeProvider theme={theme}>
-        <Button type='button' value='Styled JSS Button'/>
+        <Fragment>
+          <Button type='filled' style={styles.button}>Filled Button</Button>
+          <Button type='outline' style={styles.button}>Outline Button</Button>
+          <Button type='text' style={styles.button}>Text Button</Button>
+        </Fragment>
       </ThemeProvider>
     </div>
   );

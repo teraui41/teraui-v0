@@ -13,6 +13,7 @@ const theme = {
    grey2: '#B2BFC1',
    grey1: '#D9E0E2',
    grey0: '#FAFAFA',
+   transparent: 'transparent',
   },
   typography: {
     htmlFontSize: 16,
