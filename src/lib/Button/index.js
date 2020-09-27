@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-jss'
 import propTypes from "prop-types";
 
@@ -15,7 +16,7 @@ const basicStyle = (theme) => ({
 const textStyle = (theme) => ({
   color: theme.colors.primary,
   backgroundColor: theme.colors.transparent,
-  
+
 });
 
 const filledStyle = (theme) => ({
@@ -41,22 +42,30 @@ const switchTheme = (theme, type) => {
   }
 }
 
-// 傳入 style 讓使用者客製化
-const Button = styled('button')(({ theme, type, style }) => ({
+const StyledButton = styled('button')(({ theme, type, style }) => ({
   ...basicStyle(theme),
   ...switchTheme(theme, type),
   ...style,
 }));
 
+const Button = props => <StyledButton {...props} />;
+
 Button.propTypes = {
-  value: propTypes.string,
+  /**
+   * Click event
+   */
   onClick: propTypes.func,
+  /**
+   * Styling object
+   */
   style: propTypes.object,
+  /**
+   * Style type
+   */
   type: propTypes.oneOfType(['filled', 'outline', 'text']),
 };
 
 Button.defaultProps = {
-  value: "",
   type: 'filled',
   style: {},
   onClick: () => false,
