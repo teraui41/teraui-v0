@@ -1,36 +1,37 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+import Button from '../lib/Button';
+import theme from '../lib/theme';
+import ThemeProvider from "../lib/ThemeProvider";
 
-import { Button } from './Button';
-
+// 你的頁面標題
 export default {
-  title: 'Example/Button',
-  component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    component: Button,
+    title: 'Components/Button',
 };
 
-const Template = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
-  label: 'Button',
-};
+const styles = {
+    button: {
+      marginRight: 8
+    }
+  }
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-};
+const Template = args => {
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
+    return (
+        <ThemeProvider theme={theme}>
+            <Fragment>
+            <Button type='filled' style={styles.button}>
+            Filled Button</Button>
+          <Button type='outline' style={styles.button}>Outline Button</Button>
+          <Button type='text' style={styles.button}>Text Button</Button>
+          </Fragment>
+        </ThemeProvider>
+    );
+}
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
+export const Default = Template.bind({});
+
+Default.args = {
+    type: 'filled',
 };
