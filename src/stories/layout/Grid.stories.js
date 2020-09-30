@@ -1,8 +1,8 @@
 import React from "react";
 import Col from "../../lib/Col";
 import Row from "../../lib/Row";
+import Grid from "../../lib/Grid";
 import theme from "../../lib/theme";
-import Container from '../../lib/Container';
 import ThemeProvider from "../../lib/ThemeProvider";
 
 const styles = {
@@ -23,7 +23,7 @@ const Provider = (props) => {
 const Template = (args) => {
   return (
     <Provider>
-      <Container width='100vw' maxWidth='1000px' >
+      <Grid width='100vw' maxWidth='1000px' >
         <Row>
           <Col sm={12} md={6} lg={4} style={styles.bg_1}>1</Col>
           <Col sm={12} md={6} lg={4} style={styles.bg_2}>2</Col>
@@ -36,18 +36,14 @@ const Template = (args) => {
           <Col sm={12} md={6} lg={4} style={styles.bg_2}>7</Col>
           <Col sm={12} md={6} lg={4} style={styles.bg_1}>8</Col>
         </Row>
-      </Container>
+      </Grid>
     </Provider>
   );
 };
 
-export const Grid = Template.bind({});
-
-Grid.args = {
-  label: "Col",
-};
+export const GridSystem = Template.bind({});
 
 export default {
   component: Col,
-  title: "Components/Grid",
+  title: "Layout/Grid",
 };
