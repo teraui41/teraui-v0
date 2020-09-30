@@ -9,23 +9,23 @@ const StyledIcon = styled('span')(({ theme, color, size, style }) => ({
   ...style,
 }))
 
-const Icon = () => {
+const Icon = ({icon, ...props}) => {
   return (
-    <StyledIcon>
-      <i className='fas fa-sync fa-spin'></i>
+    <StyledIcon {...props}>
+      <i className={`fas ${icon}`}></i>
     </StyledIcon>
   )
 }
 
 Icon.propTypes = {
-  name: propTypes.string,
+  icon: propTypes.string,
   color: propTypes.string,
   size: propTypes.number,
   style: propTypes.object,
 }
 
 Icon.propTypes = {
-  name: '',
+  icon: '',
   color: '#000',
   size: 16,
   style: {},

@@ -15,8 +15,9 @@ function App() {
     <div className='App'>
       <ThemeProvider theme={theme}>
         <Fragment>
+        <Icon icon='fa-user'></Icon>
           <Button type='filled' style={styles.button}>
-            <Icon></Icon>
+            <Icon icon='fa-sync fa-spin'></Icon>
             Filled Button</Button>
           <Button type='outline' style={styles.button}>Outline Button</Button>
           <Button type='text' style={styles.button}>Text Button</Button>
