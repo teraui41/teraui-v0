@@ -1,6 +1,6 @@
 import { addons } from '@storybook/addons';
-import uiTheme from './uiTheme';
+import theme from './theme';
 
 addons.setConfig({
-  theme: uiTheme,
+  theme,
 });
