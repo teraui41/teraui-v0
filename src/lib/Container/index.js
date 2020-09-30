@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-jss'
 
-const StyledContainer = styled('main')(({ style }) => ({
+const StyledContainer = styled('main')(({ theme, style }) => ({
+  position: 'relative',
+  backgroundColor: theme.colors.grey0,
   ...style
 }));
 

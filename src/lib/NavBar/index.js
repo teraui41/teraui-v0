@@ -1,8 +1,11 @@
+import React from 'react';
 import styled from 'styled-jss';
 import propTypes from 'prop-types';
 
 const StyledNavBar = styled('header')(({ style, theme }) => ({
-  height: 80,
+  height: 60,
+  marginLeft: 250,
+  width: 'calc(100% - 250px)',
   backgroundColor: theme.colors.primary,
 }));
 
