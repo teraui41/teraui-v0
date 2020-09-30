@@ -5,7 +5,7 @@ import propTypes from 'prop-types';
 
 const StyledIcon = styled('span')(({ theme, color, size, style }) => ({
   color,
-  size,
+  fontSize: size,
   ...style,
 }))
 

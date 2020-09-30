@@ -38,15 +38,17 @@ return <StyledCol {...props} >{children}</StyledCol>
 }
 
 Col.propTypes = {
-  children: propTypes.node,
+  /** 極小裝置 360px */
   xs: propTypes.number,
+  /** 手機 480px */
   sm: propTypes.number,
+  /** 平板 768px */
   md: propTypes.number,
+  /** 電腦 1280px */
   lg: propTypes.number,
 }
 
 Col.defaultProps = {
-  children: null,
   xs: GRID_NUMBER,
   sm: GRID_NUMBER,
   md: GRID_NUMBER,
