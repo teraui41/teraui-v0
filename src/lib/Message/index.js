@@ -34,7 +34,6 @@ const StyledMessageContainer = styled("div")({
 });
 
 const activeStyle = (active) => {
-  console.log("TCL: activeStyle -> active", active)
   return active ? { 
     top: 20,
     opacity: 1
