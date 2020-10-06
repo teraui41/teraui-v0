@@ -4,7 +4,6 @@ import propTypes from 'prop-types';
 
 const StyledTypography = styled('p')(({ theme, style, variant = 'content' }) => ({
   margin: 0,
-  color: theme.colors.black,
   ...theme.typography[variant],
   ...style
 }));
