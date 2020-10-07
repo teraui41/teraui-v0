@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import isEmpty from 'lodash/isEmpty';
 import styled from "styled-jss";
 import propTypes from "prop-types";
-import Collapse from "../Collapse";
+import Pop from "../Pop";
 import FormGroup from "../FormGroup";
 import FromLabel from "../FromLabel";
 import ErrorMessage from "../ErrorMessage";
@@ -36,9 +36,9 @@ const Select = ({ items, label, required, errorMessage, ...props }) => {
       <FormGroup>
         <FromLabel required={required}>{label}</FromLabel>
         <StyledSelect></StyledSelect>
-        <Collapse open={open}>
+        <Pop open={open}>
           <Options>Items 1</Options>
-        </Collapse>
+        </Pop>
       </FormGroup>
       <ErrorMessage errorMessage={errorMessage}>
         {errorMessage}
