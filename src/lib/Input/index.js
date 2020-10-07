@@ -4,7 +4,7 @@ import propTypes from "prop-types";
 import isEmpty from 'lodash/isEmpty';
 import FromLabel from '../FromLabel';
 import FormGroup from '../FormGroup';
-import breakpoint from "../constant/breakpoint";
+import ErrorMessage from '../ErrorMessage';
 
 const StyledInput = styled("input")({
   flex: 1,
@@ -18,16 +18,6 @@ const StyledInput = styled("input")({
   },
   color: ({ theme, disabled }) => disabled ? theme.colors.grey2: theme.colors.black,
   backgroundColor: ({ theme, disabled }) => disabled ? theme.colors.grey0: theme.colors.white,
-});
-
-
-
-const StyedErrorMessage = styled("div")({
-  color: ({ theme }) => theme.colors.danger,
-  paddingLeft: ({ theme }) => theme.getSpacing(1),
-  [breakpoint.mediaLG]: {
-    paddingLeft: ({ theme }) => theme.getSpacing(15),
-  },
 });
 
 const Input = ({
@@ -44,9 +34,9 @@ const Input = ({
         <FromLabel required={required}>{label}</FromLabel>
         <StyledInput value={value} onChange={onChange} errorMessage={errorMessage} {...props} />
       </FormGroup>
-      <StyedErrorMessage errorMessage={errorMessage}>
+      <ErrorMessage errorMessage={errorMessage}>
         {errorMessage}
-      </StyedErrorMessage>
+      </ErrorMessage>
     </Fragment>
   );
 };
