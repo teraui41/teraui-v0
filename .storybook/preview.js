@@ -3,6 +3,6 @@ export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   layout: 'centered',
   options: {
-    storySort: { order: ['Introduction', 'Components', 'Example' ]}
+    storySort: { order: ['Introduction', 'Layout', 'Components', 'Form', 'Feedback' ]}
   }
 }

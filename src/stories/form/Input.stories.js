@@ -63,5 +63,5 @@ DateInput.args = {
 // 你的頁面標題
 export default {
   component: Input,
-  title: "Components/Input",
+  title: "Form/Input",
 };

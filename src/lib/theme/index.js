@@ -1,3 +1,5 @@
+import merge from 'lodash/merge';
+
 const theme = {
   colors: {
    primary: '#60C4F8',
@@ -30,6 +32,10 @@ const theme = {
   getSpacing: (num = 1) => {
     return 8 * num;
   }
+}
+
+export const createTheme = (customTheme) => {
+  return merge(customTheme, theme);
 }
 
 export default theme;

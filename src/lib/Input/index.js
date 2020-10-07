@@ -2,26 +2,9 @@ import React, { Fragment } from "react";
 import styled from "styled-jss";
 import propTypes from "prop-types";
 import isEmpty from 'lodash/isEmpty';
+import FromLabel from '../FromLabel';
+import FormGroup from '../FormGroup';
 import breakpoint from "../constant/breakpoint";
-
-const StyledLabel = styled("label")({
-  minWidth: 80,
-  position: "relative",
-  color: ({ theme }) => theme.colors.grey4,
-  padding: ({ theme }) => `${theme.getSpacing(1)}px ${theme.getSpacing(1)}px`,
-  "&::after": {
-    position: "absolute",
-    content: ({ required }) => (required ? '"*"' : '""'),
-    color: ({ theme }) => theme.colors.danger,
-    marginLeft: 2,
-  },
-  [breakpoint.mediaLG]: {
-    padding: ({ theme }) => `${theme.getSpacing(1)}px ${theme.getSpacing(2)}px`,
-    "&::after": {
-      left: 2,
-    },
-  },
-});
 
 const StyledInput = styled("input")({
   flex: 1,
@@ -37,18 +20,7 @@ const StyledInput = styled("input")({
   backgroundColor: ({ theme, disabled }) => disabled ? theme.colors.grey0: theme.colors.white,
 });
 
-const StyledFormGroup = styled("div")({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "flex-star",
-  [breakpoint.mediaLG]: {
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "row",
-    boxSizing: "border-box",
-    justifyContent: "center",
-  },
-});
+
 
 const StyedErrorMessage = styled("div")({
   color: ({ theme }) => theme.colors.danger,
@@ -68,10 +40,10 @@ const Input = ({
 }) => {
   return (
     <Fragment>
-      <StyledFormGroup>
-        <StyledLabel required={required}>{label}</StyledLabel>
+      <FormGroup>
+        <FromLabel required={required}>{label}</FromLabel>
         <StyledInput value={value} onChange={onChange} errorMessage={errorMessage} {...props} />
-      </StyledFormGroup>
+      </FormGroup>
       <StyedErrorMessage errorMessage={errorMessage}>
         {errorMessage}
       </StyedErrorMessage>
