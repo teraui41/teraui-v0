@@ -1,11 +1,12 @@
 import React, { Fragment } from "react";
+import isNumber from 'lodash/isNumber';
 import styled from "styled-jss";
 import propTypes from "prop-types";
 import FromLabel from "../FromLabel";
 import FormGroup from "../FormGroup";
 import breakpoint from "../constant/breakpoint";
 
-const StyledRadio = styled("label")({
+const StyledCheck = styled("label")({
   position: "relative",
   display: "flex",
   paddingLeft: 30,
@@ -18,28 +19,28 @@ const StyledRadio = styled("label")({
     left: 0,
     width: 8,
     height: 8,
-    borderRadius: 10,
     margin: ({ theme }) => theme.getSpacing(1),
     border: ({ theme, checked }) =>
       `5px solid ${checked ? theme.colors.primary : theme.colors.grey1}`,
   },
-  [breakpoint.mediaMD]: {
-    marginBottom: ({ theme }) => theme.getSpacing(0)
-  }
+  [breakpoint.mediaLG]: {
+    marginBottom: ({ theme }) => theme.getSpacing(0),
+  },
 });
 
-const RadioItems = ({ items, name, onChange, value: currentValue }) => {
+const CheckItems = ({ items, name, onChange, values: currentValues }) => {
   return items.map((item, index) => {
-    const checked = currentValue === item.value;
+    const itemValue = isNumber(item.value) ? item.value.toString() : item.value;
+    const checked = currentValues.includes(itemValue);
     const ID = `${name}_${item.value}_${index}`;
 
     return (
       <Fragment key={`radios_${index}`}>
-        <StyledRadio htmlFor={ID} checked={checked}>
+        <StyledCheck htmlFor={ID} checked={checked}>
           {item.label}
-        </StyledRadio>
+        </StyledCheck>
         <input
-          type='radio'
+          type='checkbox'
           id={ID}
           name={name}
           value={item.value}
@@ -58,13 +59,13 @@ const RadioGroup = ({
   label,
   required,
   name,
-  value,
+  values,
   ...props
 }) => {
   return (
     <FormGroup>
       <FromLabel required={required}>{label}</FromLabel>
-      <RadioItems value={value} items={items} name={name} onChange={onChange} />
+      <CheckItems values={values} items={items} name={name} onChange={onChange} />
     </FormGroup>
   );
 };
@@ -77,13 +78,15 @@ RadioGroup.propTypes = {
       value: propTypes.oneOfType([propTypes.number, propTypes.string]),
     })
   ),
-  value: propTypes.oneOfType([propTypes.number, propTypes.string]),
+  values: propTypes.arrayOf(
+    propTypes.oneOfType([propTypes.number, propTypes.string])
+  ),
   onChange: propTypes.func,
 };
 
 RadioGroup.defaultProps = {
   label: "",
-  value: "",
+  values: [],
   items: [],
   onChange: () => false,
 };

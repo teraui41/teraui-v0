@@ -10,4 +10,5 @@ export default {
   mediaSM,
   mediaMD,
   mediaLG,
+  mediaXL,
 }
