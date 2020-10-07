@@ -26,13 +26,16 @@ const Template = (args) => {
   return (
     <Provider>
       <Fragment>
-        <Breadcrumbs paths={paths}/>
+        <Breadcrumbs {...args}/>
       </Fragment>
     </Provider>
   );
 };
 
 export const Default = Template.bind({});
+Default.args = {
+  paths
+}
 
 // 你的頁面標題
 export default {
