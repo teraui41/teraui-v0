@@ -3,11 +3,10 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import styled from 'styled-jss';
 import propTypes from 'prop-types';
 
-const StyledIcon = styled('span')(({ theme, color, size, style }) => ({
-  color,
-  fontSize: size,
-  ...style,
-}))
+const StyledIcon = styled('span')(({ size: fontSize, style }) => ({
+  fontSize,
+  ...style
+}));
 
 const Icon = ({icon, ...props}) => {
   return (
@@ -19,14 +18,12 @@ const Icon = ({icon, ...props}) => {
 
 Icon.propTypes = {
   icon: propTypes.string,
-  color: propTypes.string,
   size: propTypes.number,
   style: propTypes.object,
 }
 
-Icon.propTypes = {
+Icon.defaultProps = {
   icon: '',
-  color: '#000',
   size: 16,
   style: {},
 }

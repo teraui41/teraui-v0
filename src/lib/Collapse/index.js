@@ -1,15 +1,6 @@
-import React from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, {useRef, useEffect, useState, useCallback } from "react";
 import styled from "styled-jss";
-
-const styles = {
-  collapse: {
-    overflow: "hidden",
-    transition: "all .2s ease",
-  },
-};
+import propTypes from 'prop-types';
 
 const StyledContent = styled("div")(({ theme, open, height }) => ({
   height,
@@ -38,13 +29,20 @@ const Collapse = ({ open, children }) => {
   const refEle = useRef(null);
   const [height, setHeight] = useState(0);
 
-  const handleGetClientHeight = getClientHeight(refEle);
+  
+  const setHeightHandler = useCallback(
+    () => {
+      const handleGetClientHeight = getClientHeight(refEle);
+      setHeight(handleGetClientHeight());
+      open ? onOpen(setHeight) : onClose(setHeight, handleGetClientHeight);
+    },
+    [refEle, open],
+  );
 
   useEffect(() => {
-    setHeight(handleGetClientHeight());
-    open ? onOpen(setHeight) : onClose(setHeight, handleGetClientHeight);
+    setHeightHandler();
 
-  }, [refEle, open]);
+  }, [setHeightHandler]);
 
   return (
     <StyledContent open={open} height={height}>
@@ -52,5 +50,13 @@ const Collapse = ({ open, children }) => {
     </StyledContent>
   );
 };
+
+Collapse.propTypes = {
+  open: propTypes.bool,
+}
+
+Collapse.defaultProps = {
+  open: false,
+}
 
 export default Collapse;

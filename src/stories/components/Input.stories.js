@@ -26,7 +26,10 @@ const TemplateForm = (args) => {
             <Input type='text' label="username" placeholder='username' />
         </FormControl>
         <FormControl>
-          <Input type='text' label="account" placeholder='account' />
+          <Input required type='text' label="account" placeholder='account' />
+        </FormControl>
+        <FormControl>
+          <Input required type='text' label="phone" placeholder='phone' errorMessage='error message' />
         </FormControl>
       </Fragment>
     </Provider>

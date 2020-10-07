@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-jss";
 import propTypes from "prop-types";
 import Icon from "../Icon";
@@ -62,13 +62,21 @@ const StyledMessage = styled("span")(({ theme, active }) => ({
 
 const Message = ({ open, type, content, onClose, duration, ...props }) => {
 
+
+  const handleOnClose = useCallback(
+    () => {
+      if(open) {
+        setTimeout(() => {
+          onClose();
+        },duration);
+      }
+    },
+    [open, duration, onClose],
+  );
+
   useEffect(() => {
-    if(open) {
-      setTimeout(() => {
-        onClose();
-      },duration);
-    }
-  }, [open])
+    handleOnClose();
+  }, [handleOnClose])
 
   return (
     <StyledMessageContainer>
