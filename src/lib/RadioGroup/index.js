@@ -9,6 +9,7 @@ const StyledRadio = styled("label")({
   position: "relative",
   display: "flex",
   paddingLeft: 30,
+  opacity: ({ disabled }) => disabled ? 0.5:1,
   marginBottom: ({ theme }) => theme.getSpacing(1),
   paddingRight: ({ theme }) => theme.getSpacing(1),
   alignItems: "center",
@@ -24,18 +25,24 @@ const StyledRadio = styled("label")({
       `5px solid ${checked ? theme.colors.primary : theme.colors.grey1}`,
   },
   [breakpoint.mediaMD]: {
-    marginBottom: ({ theme }) => theme.getSpacing(0)
-  }
+    marginBottom: ({ theme }) => theme.getSpacing(0),
+  },
 });
 
-const RadioItems = ({ items, name, onChange, value: currentValue }) => {
+const RadioItems = ({
+  items,
+  name,
+  onChange,
+  disabled,
+  value: currentValue,
+}) => {
   return items.map((item, index) => {
     const checked = currentValue === item.value;
     const ID = `${name}_${item.value}_${index}`;
 
     return (
       <Fragment key={`radios_${index}`}>
-        <StyledRadio htmlFor={ID} checked={checked}>
+        <StyledRadio htmlFor={ID} checked={checked} disabled={disabled}>
           {item.label}
         </StyledRadio>
         <input
@@ -45,6 +52,7 @@ const RadioItems = ({ items, name, onChange, value: currentValue }) => {
           value={item.value}
           onChange={onChange}
           checked={checked}
+          disabled={disabled}
           style={{ display: "none" }}
         />
       </Fragment>
@@ -53,24 +61,32 @@ const RadioItems = ({ items, name, onChange, value: currentValue }) => {
 };
 
 const RadioGroup = ({
-  items,
-  onChange,
-  label,
-  required,
   name,
+  items,
+  label,
   value,
+  onChange,
+  required,
+  disabled,
   ...props
 }) => {
   return (
     <FormGroup>
       <FromLabel required={required}>{label}</FromLabel>
-      <RadioItems value={value} items={items} name={name} onChange={onChange} />
+      <RadioItems
+        name={name}
+        value={value}
+        items={items}
+        onChange={onChange}
+        disabled={disabled}
+      />
     </FormGroup>
   );
 };
 
 RadioGroup.propTypes = {
   label: propTypes.string,
+  disabled: propTypes.bool,
   items: propTypes.arrayOf(
     propTypes.shape({
       label: propTypes.string,
@@ -85,6 +101,7 @@ RadioGroup.defaultProps = {
   label: "",
   value: "",
   items: [],
+  disabled: false,
   onChange: () => false,
 };
 

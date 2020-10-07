@@ -4,17 +4,17 @@ import FormControl from "../../lib/FormControl";
 import ThemeProvider from "../../lib/ThemeProvider";
 import CheckGroup from "../../lib/CheckGroup";
 
-const RadioItems = [
+const CheckItems = [
   {
-    label: "Radio 1",
+    label: "Check 1",
     value: 1,
   },
   {
-    label: "Radio 2",
+    label: "Check 2",
     value: 2,
   },
   {
-    label: "Radio 3",
+    label: "Check 3",
     value: 3,
   },
 ];
@@ -41,6 +41,24 @@ const TemplateForm = (args) => {
       <Fragment>
         <FormControl>
           <CheckGroup {...args} values={values} onChange={onChange} />
+          <CheckGroup {...args} name='disabledTest' values={values} onChange={onChange} disabled/>
+        </FormControl>
+      </Fragment>
+    </Provider>
+  );
+};
+
+
+const Template = (args) => {
+  const [values, setValues] = useState([]);
+
+  const onChange = handleOnChange(values, setValues);
+
+  return (
+    <Provider>
+      <Fragment>
+        <FormControl>
+          <CheckGroup {...args} values={values} onChange={onChange} />
         </FormControl>
       </Fragment>
     </Provider>
@@ -50,13 +68,13 @@ const TemplateForm = (args) => {
 export const Default = TemplateForm.bind({});
 Default.args = {
   name: "username",
-  items: RadioItems,
+  items: CheckItems,
 };
 
-export const LabelRadio = TemplateForm.bind({});
-LabelRadio.args = {
+export const LabelCheck = Template.bind({});
+LabelCheck.args = {
   name: "labelItems",
-  items: RadioItems,
+  items: CheckItems,
   label: "label",
   required: true,
 };

@@ -10,6 +10,7 @@ const StyledCheck = styled("label")({
   position: "relative",
   display: "flex",
   paddingLeft: 30,
+  opacity: ({ disabled }) => disabled ? 0.5 : 1,
   marginBottom: ({ theme }) => theme.getSpacing(1),
   paddingRight: ({ theme }) => theme.getSpacing(1),
   alignItems: "center",
@@ -28,7 +29,7 @@ const StyledCheck = styled("label")({
   },
 });
 
-const CheckItems = ({ items, name, onChange, values: currentValues }) => {
+const CheckItems = ({ items, name, disabled, onChange, values: currentValues }) => {
   return items.map((item, index) => {
     const itemValue = isNumber(item.value) ? item.value.toString() : item.value;
     const checked = currentValues.includes(itemValue);
@@ -36,7 +37,7 @@ const CheckItems = ({ items, name, onChange, values: currentValues }) => {
 
     return (
       <Fragment key={`radios_${index}`}>
-        <StyledCheck htmlFor={ID} checked={checked}>
+        <StyledCheck htmlFor={ID} checked={checked} disabled={disabled}>
           {item.label}
         </StyledCheck>
         <input
@@ -46,6 +47,7 @@ const CheckItems = ({ items, name, onChange, values: currentValues }) => {
           value={item.value}
           onChange={onChange}
           checked={checked}
+          disabled={disabled}
           style={{ display: "none" }}
         />
       </Fragment>
@@ -53,25 +55,27 @@ const CheckItems = ({ items, name, onChange, values: currentValues }) => {
   });
 };
 
-const RadioGroup = ({
-  items,
-  onChange,
-  label,
-  required,
+const CheckGroup = ({
   name,
+  items,
+  label,
   values,
+  onChange,
+  required,
+  disabled,
   ...props
 }) => {
   return (
     <FormGroup>
       <FromLabel required={required}>{label}</FromLabel>
-      <CheckItems values={values} items={items} name={name} onChange={onChange} />
+      <CheckItems values={values} items={items} name={name} disabled={disabled} onChange={onChange} />
     </FormGroup>
   );
 };
 
-RadioGroup.propTypes = {
+CheckGroup.propTypes = {
   label: propTypes.string,
+  disabled: propTypes.bool,
   items: propTypes.arrayOf(
     propTypes.shape({
       label: propTypes.string,
@@ -84,11 +88,12 @@ RadioGroup.propTypes = {
   onChange: propTypes.func,
 };
 
-RadioGroup.defaultProps = {
+CheckGroup.defaultProps = {
   label: "",
-  values: [],
   items: [],
+  values: [],
+  disabled: false,
   onChange: () => false,
 };
 
-export default RadioGroup;
+export default CheckGroup;

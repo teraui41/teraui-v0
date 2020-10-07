@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import theme from "../../lib/theme";
 import FormControl from "../../lib/FormControl";
 import ThemeProvider from "../../lib/ThemeProvider";
-import RadioGroup from '../../lib/Radio';
+import RadioGroup from '../../lib/RadioGroup';
 
 const RadioItems = [
   {
@@ -38,6 +38,24 @@ const TemplateForm = (args) => {
       <Fragment>
         <FormControl>
             <RadioGroup {...args} value={value} onChange={onChange}/>
+            <RadioGroup {...args} disabled name='disableTest' value={value} onChange={onChange}/>
+        </FormControl>
+      </Fragment>
+    </Provider>
+  );
+};
+
+const Template = (args) => {
+
+  const [value, setValue] = useState(1);
+
+  const onChange = handleOnChange(setValue);
+
+  return (
+    <Provider>
+      <Fragment>
+        <FormControl>
+            <RadioGroup {...args} value={value} onChange={onChange}/>
         </FormControl>
       </Fragment>
     </Provider>
@@ -50,7 +68,7 @@ Default.args = {
   items: RadioItems
 }
 
-export const LabelRadio = TemplateForm.bind({});
+export const LabelRadio = Template.bind({});
 LabelRadio.args = {
   name: 'labelItems',
   items: RadioItems,
