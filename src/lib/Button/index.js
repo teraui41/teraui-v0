@@ -62,7 +62,7 @@ Button.propTypes = {
   /**
    * Style type
    */
-  type: propTypes.oneOfType(['filled', 'outline', 'text']),
+  type: propTypes.oneOf(['filled', 'outline', 'text']),
 };
 
 Button.defaultProps = {

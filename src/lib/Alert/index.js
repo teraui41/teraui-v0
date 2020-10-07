@@ -5,7 +5,6 @@ import Card from '../Card';
 import Icon from '../Icon';
 import Button from '../Button';
 import CardBody from '../CardBody';
-import CardHeader from '../CardHeader';
 import CardFooter from '../CardFooter';
 
 const ICON_MAP = {

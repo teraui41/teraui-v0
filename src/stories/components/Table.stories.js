@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import theme from "../../lib/theme";
 import Card from "../../lib/Card";
 import Table from '../../lib/Table';
