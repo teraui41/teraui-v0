@@ -33,6 +33,8 @@ const StyledInput = styled("input")({
   "&:active, &:focus": {
     border: ({ theme }) => `1px solid ${theme.colors.primary}`,
   },
+  color: ({ theme, disabled }) => disabled ? theme.colors.grey2: theme.colors.black,
+  backgroundColor: ({ theme, disabled }) => disabled ? theme.colors.grey0: theme.colors.white,
 });
 
 const StyledFormGroup = styled("div")({

@@ -26,6 +26,9 @@ const TemplateForm = (args) => {
             <Input type='text' label="username" placeholder='username' />
         </FormControl>
         <FormControl>
+            <Input disabled type='text' label="disabled" value='disabled' />
+        </FormControl>
+        <FormControl>
           <Input required type='text' label="account" placeholder='account' />
         </FormControl>
         <FormControl>
