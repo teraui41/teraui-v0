@@ -41,6 +41,8 @@ const TemplateForm = (args) => {
       <Fragment>
         <FormControl>
           <Select {...args} values={values} onChange={onChange} />
+        </FormControl>
+        <FormControl>
           <Select {...args} name='disabledTest' values={values} onChange={onChange} disabled/>
         </FormControl>
       </Fragment>
