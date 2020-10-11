@@ -3,7 +3,6 @@ import styled from "styled-jss";
 import propTypes from "prop-types";
 import isEmpty from 'lodash/isEmpty';
 import Typography from "../Typography";
-import theme from "../theme";
 
 const StyledPath = styled("a")({
   display: "inline-block",
