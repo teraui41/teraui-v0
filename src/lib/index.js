@@ -121,8 +121,5 @@ export * from './TableHead';
 export { default as TableRow } from './TableRow';
 export * from './TableRow';
 
-export { default as theme } from './theme';
-export * from './theme';
-
 export { default as Typography } from './Typography';
 export * from './Typography';
