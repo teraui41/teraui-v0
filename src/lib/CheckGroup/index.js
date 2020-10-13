@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import isNumber from 'lodash/isNumber';
 import styled from "styled-jss";
 import propTypes from "prop-types";
-import FromLabel from "../FromLabel";
+import FormLabel from "../FormLabel";
 import FormGroup from "../FormGroup";
 import breakpoint from "../constant/breakpoint";
 
@@ -67,7 +67,7 @@ const CheckGroup = ({
 }) => {
   return (
     <FormGroup>
-      <FromLabel required={required}>{label}</FromLabel>
+      <FormLabel required={required}>{label}</FormLabel>
       <CheckItems values={values} items={items} name={name} disabled={disabled} onChange={onChange} />
     </FormGroup>
   );

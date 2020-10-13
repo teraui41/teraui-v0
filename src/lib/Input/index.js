@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import styled from "styled-jss";
 import propTypes from "prop-types";
 import isEmpty from 'lodash/isEmpty';
-import FromLabel from '../FromLabel';
+import FormLabel from '../FormLabel';
 import FormGroup from '../FormGroup';
 import ErrorMessage from '../ErrorMessage';
 
@@ -31,7 +31,7 @@ const Input = ({
   return (
     <Fragment>
       <FormGroup>
-        <FromLabel required={required}>{label}</FromLabel>
+        <FormLabel required={required}>{label}</FormLabel>
         <StyledInput value={value} onChange={onChange} errorMessage={errorMessage} {...props} />
       </FormGroup>
       <ErrorMessage errorMessage={errorMessage}>

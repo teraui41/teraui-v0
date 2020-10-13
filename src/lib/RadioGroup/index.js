@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import styled from "styled-jss";
 import propTypes from "prop-types";
-import FromLabel from "../FromLabel";
+import FormLabel from "../FormLabel";
 import FormGroup from "../FormGroup";
 import breakpoint from "../constant/breakpoint";
 
@@ -72,7 +72,7 @@ const RadioGroup = ({
 }) => {
   return (
     <FormGroup>
-      <FromLabel required={required}>{label}</FromLabel>
+      <FormLabel required={required}>{label}</FormLabel>
       <RadioItems
         name={name}
         value={value}

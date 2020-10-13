@@ -7,7 +7,7 @@ import Icon from "../Icon";
 import Card from "../Card";
 import CardBody from "../CardBody";
 import FormGroup from "../FormGroup";
-import FromLabel from "../FromLabel";
+import FormLabel from "../FormLabel";
 import Typography from "../Typography";
 import ErrorMessage from "../ErrorMessage";
 
@@ -115,7 +115,7 @@ const Select = ({
   return (
     <Fragment>
       <FormGroup>
-        <FromLabel required={required}>{label}</FromLabel>
+        <FormLabel required={required}>{label}</FormLabel>
         <div ref={menuEle} onClick={onSelectClick}>
           <StyledSelect open={open} errorMessage={errorMessage}>
             <StyledTypography>{selectedItem.label || placeholder}</StyledTypography>

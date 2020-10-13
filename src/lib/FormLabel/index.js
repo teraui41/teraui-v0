@@ -3,7 +3,7 @@ import styled from 'styled-jss';
 import isEmpty from 'lodash/isEmpty';
 import breakpoint from "../constant/breakpoint";
 
-const FromLabel = styled("label")({
+const FormLabel = styled("label")({
   display: ({ children }) => isEmpty(children) ? 'none': 'initial',
   minWidth: 80,
   position: "relative",
@@ -23,4 +23,4 @@ const FromLabel = styled("label")({
   },
 });
 
-export default FromLabel;
+export default FormLabel;
