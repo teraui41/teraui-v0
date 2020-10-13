@@ -112,8 +112,8 @@ export * from './TableBody';
 export { default as TableCell } from './TableCell';
 export * from './TableCell';
 
-export { default as TableFooter } from './TableFooter';
-export * from './TableFooter';
+export { default as TableFoot } from './TableFoot';
+export * from './TableFoot';
 
 export { default as TableHead } from './TableHead';
 export * from './TableHead';
